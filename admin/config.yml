@@ -2,7 +2,7 @@ backend:
   name: github
   repo: joaoeng13-arch/jb-engenharia
   branch: main
-  base_url: https://jb-engenharia-oauth.SEU_SUBDOMINIO.workers.dev
+ base_url: https://jb-engenharia-oauth.jb-engenharia2018.workers.dev
   auth_endpoint: auth
 
 site_url: /
