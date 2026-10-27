@@ -1,39 +1,92 @@
+# ==========================================
+# JB ENGENHARIA
+# Configuração do Painel Administrativo
+# Decap CMS + GitHub + Cloudflare
+# ==========================================
+
+# AUTENTICAÇÃO
 backend:
   name: github
   repo: joaoeng13-arch/jb-engenharia
   branch: main
- base_url: https://jb-engenharia-oauth.jb-engenharia2018.workers.dev
+  base_url: https://jb-engenharia-oauth.jb-engenharia2018.workers.dev
   auth_endpoint: auth
 
-site_url: /
-display_url: /
+# CONFIGURAÇÕES DO SITE
+site_url: https://jbengenharia.app
+display_url: https://jbengenharia.app
 locale: pt
+
+# ARMAZENAMENTO DE IMAGENS
 media_folder: "assets/obras"
 public_folder: "/assets/obras"
+
+# ==========================================
+# GERENCIAMENTO DE OBRAS
+# ==========================================
 
 collections:
   - name: "obras"
     label: "Portfólio de Obras"
     label_singular: "Obra"
+
     description: "Cadastre aqui as obras que aparecerão automaticamente na galeria após a publicação do site."
+
     folder: "obras"
+
     create: true
     delete: true
+
     format: "json"
     extension: "json"
+
     slug: "{{slug}}"
     identifier_field: "title"
+
     summary: "{{title}} — {{status}}"
+
     fields:
-      - { label: "Título da Obra", name: "title", widget: "string", required: true }
+      # TÍTULO
+      - label: "Título da Obra"
+        name: "title"
+        widget: "string"
+        required: true
+
+      # CATEGORIA
       - label: "Tipo / Categoria"
         name: "category"
         widget: "select"
-        options: ["Residencial", "Comercial", "Reformas", "Infraestrutura"]
+        required: true
+        options:
+          - "Residencial"
+          - "Comercial"
+          - "Reformas"
+          - "Infraestrutura"
+
+      # STATUS
       - label: "Status"
         name: "status"
         widget: "select"
-        options: ["Concluída", "Em Andamento"]
-      - { label: "Cidade / Local da Obra", name: "location", widget: "string", required: true, hint: "Ex.: Mirabela / MG" }
-      - { label: "Foto Principal", name: "image", widget: "image", required: true }
-      - { label: "Descrição dos Serviços", name: "description", widget: "text", required: true }
+        required: true
+        options:
+          - "Concluída"
+          - "Em Andamento"
+
+      # LOCALIZAÇÃO
+      - label: "Cidade / Local da Obra"
+        name: "location"
+        widget: "string"
+        required: true
+        hint: "Ex.: Mirabela / MG"
+
+      # FOTO PRINCIPAL
+      - label: "Foto Principal"
+        name: "image"
+        widget: "image"
+        required: true
+
+      # DESCRIÇÃO
+      - label: "Descrição dos Serviços"
+        name: "description"
+        widget: "text"
+        required: true
