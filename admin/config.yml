@@ -1,6 +1,9 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: joaoeng13-arch/jb-engenharia
   branch: main
+  base_url: https://jb-engenharia-oauth.SEU_SUBDOMINIO.workers.dev
+  auth_endpoint: auth
 
 site_url: /
 display_url: /

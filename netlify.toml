@@ -1,8 +1,0 @@
-[build]
-  command = "node scripts/build-obras.js"
-  publish = "."
-
-[[headers]]
-  for = "/admin/*"
-  [headers.values]
-    X-Robots-Tag = "noindex, nofollow"
