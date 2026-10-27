@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <meta content="#101011" name="theme-color"/>
+  <meta content="JB Engenharia e Constru&ccedil;&atilde;o LTDA &mdash; Construindo o sonho da casa pr&oacute;pria. Constru&ccedil;&atilde;o, reformas, infraestrutura, projetos e gest&atilde;o de obras em Mirabela e no Norte de Minas." name="description"/>
+  <meta content="JB Engenharia e Constru&ccedil;&atilde;o | Mirabela/MG" property="og:title"/>
+  <meta content="Construindo o sonho da casa pr&oacute;pria. Engenharia com responsabilidade, qualidade e confian&ccedil;a." property="og:description"/>
+  <meta content="website" property="og:type"/>
+  <title>
+   JB Engenharia e Constru&ccedil;&atilde;o | Construindo o sonho da casa pr&oacute;pria
+  </title>
+  <style>
+   /* JB Engenharia — Identidade preto, grafite, dourado e branco */
+:root {
+  --black: #0b0c0e;
+  --deep: #111316;
+  --graphite: #1c2024;
+  --gold: #c99d48;
+  --gold-bright: #e4bf78;
+  --gold-deep: #9d7429;
+  --paper: #f8f7f4;
+  --cream: #f1eee7;
+  --white: #ffffff;
+  --ink: #202227;
+  --muted: #666b73;
+  --line: #e6e3dd;
+  --green: #23b567;
+  --green-hover: #168647;
+  --shadow: 0 22px 55px rgba(12, 13, 14, .10);
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 94px; }
+body { margin: 0; font-family: Inter, Roboto, system-ui, -apple-system, 'Segoe UI', sans-serif; color: var(--ink); background: #fff; line-height: 1.65; }
+button, input { font: inherit; }
+a { text-decoration: none; color: inherit; }
+img { display: block; max-width: 100%; }
+button { cursor: pointer; }
+::selection { color: #121315; background: #e9c57d; }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--gold-bright); outline-offset: 4px; }
+.container { max-width: 1210px; padding-inline: 26px; margin-inline: auto; }
+.section { padding: 106px 0; }
+.eyebrow { color: var(--gold-deep); font-size: .78rem; font-weight: 800; letter-spacing: .19em; text-transform: uppercase; }
+.section-title { font-size: clamp(2.08rem, 4vw, 3.28rem); letter-spacing: -.045em; line-height: 1.14; color: var(--deep); margin: 15px 0 21px; }
+.lead { color: var(--muted); font-size: 1.04rem; max-width: 635px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 11px; padding: 14px 22px; border: 1px solid transparent; border-radius: 5px; font-size: .88rem; font-weight: 750; white-space: nowrap; transition: transform .22s, box-shadow .22s, background .22s, color .22s, border-color .22s; }
+.btn:hover { transform: translateY(-3px); }
+.btn-green { background: var(--green); color: #fff; box-shadow: 0 10px 24px rgba(13, 120, 65, .19); }
+.btn-green:hover { background: var(--green-hover); }
+.btn-white { background: #fff; color: var(--black); }
+.btn-white:hover { background: var(--gold-bright); }
+.btn-outline { background: transparent; color: #fff; border-color: rgba(232, 198, 134, .54); }
+.btn-outline:hover { background: rgba(224, 191, 120, .13); }
+.btn-navy { background: var(--deep); color: #fff; border-color: var(--deep); }
+.btn-navy:hover { background: #383026; border-color: var(--gold); }
+.arrow { line-height: 1; font-size: 1.2em; }
+/* Cabeçalho */
+header { position: fixed; inset: 0 0 auto; z-index: 100; background: rgba(10, 11, 12, .96); border-bottom: 1px solid rgba(213, 168, 87, .28); backdrop-filter: blur(17px); -webkit-backdrop-filter: blur(17px); box-shadow: 0 4px 20px rgba(0,0,0,.12); }
+.nav-wrap { height: 86px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.brand { display: flex; align-items: center; gap: 10px; min-width: 0; flex-shrink: 0; }
+.brand-logo { width: 169px; height: auto; max-height: 70px; object-fit: contain; }
+.brand-text { display: flex; flex-direction: column; white-space: nowrap; font-size: .62rem; font-weight: 700; color: #d2bb8c; letter-spacing: .15em; padding-left: 9px; border-left: 1px solid #83632d; }
+.brand-text strong { font-size: inherit; }
+.nav-links { display: flex; align-items: center; gap: 23px; }
+.nav-links a { font-size: .83rem; font-weight: 650; color: #e5e0d8; transition: color .2s; }
+.nav-links a:hover { color: var(--gold-bright); }
+.nav-cta { padding: 11px 15px; font-size: .79rem; }
+.menu-toggle { display: none; align-items: center; justify-content: center; flex: none; width: 43px; height: 43px; background: #1c1c1d; border: 1px solid #82612b; border-radius: 4px; font-size: 1.5rem; color: #e7c77d; }
+/* Banner inicial */
+.hero { min-height: 740px; margin-top: 86px; display: flex; align-items: center; position: relative; isolation: isolate; overflow: hidden; background: #151515; }
+.hero::before { content: ''; position: absolute; inset: 0; z-index: -2; background: linear-gradient(90deg,rgba(7,8,10,.98) 0%,rgba(10,11,12,.92) 37%,rgba(14,15,16,.63) 65%,rgba(15,14,12,.30) 100%),linear-gradient(0deg,#0a0b0ded,transparent 65%),url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=2100&q=85') center / cover; }
+.hero::after { content: ''; position: absolute; inset: auto 0 0; height: 5px; background: linear-gradient(90deg,var(--gold) 0 27%,#fff0 27%); }
+.hero .container { width: 100%; padding-top: 60px; padding-bottom: 62px; }
+.hero-tag { display: inline-flex; gap: 12px; align-items: center; color: var(--gold-bright); font-size: .79rem; text-transform: uppercase; font-weight: 800; letter-spacing: .155em; }
+.hero-tag::before { content: ''; display: inline-block; width: 31px; height: 2px; background: var(--gold); }
+h1 { max-width: 790px; margin: 25px 0; color: #fff; font-size: clamp(2.75rem, 6.3vw, 5.65rem); line-height: 1.065; letter-spacing: -.052em; font-weight: 850; }
+h1 em { font-style: normal; color: var(--gold-bright); }
+.hero p { font-size: clamp(1rem,1.5vw,1.15rem); color: #e0dfdd; line-height: 1.85; max-width: 615px; margin: 0 0 34px; }
+.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+.hero-foot { max-width: 720px; display: flex; flex-wrap: wrap; gap: 22px 36px; margin-top: 66px; padding-top: 24px; border-top: 1px solid rgba(219, 180, 100, .34); font-size: .83rem; color: #efeee9; }
+.hero-foot strong { display: block; font-size: 1.22rem; line-height: 1.3; color: #fff; }
+.hero-foot span { color: #c4c2be; }
+/* Apresentação */
+.about-grid { display: grid; grid-template-columns: .96fr 1.04fr; gap: 76px; align-items: center; }
+.about-photo { height: 565px; border-radius: 4px; position: relative; background: linear-gradient(125deg,rgba(16,15,14,.10),rgba(16,15,14,.4)),url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1100&q=85') center / cover; box-shadow: var(--shadow); }
+.about-photo::after { content: ''; position: absolute; width: 97px; height: 97px; right: -19px; bottom: -19px; z-index: -1; border: 8px solid var(--gold); }
+.about-stamp { position: absolute; bottom: 34px; left: -21px; background: #151617; border: 1px solid rgba(221, 179, 94,.32); border-left: 4px solid var(--gold); padding: 20px 26px; border-radius: 4px; max-width: 260px; box-shadow: var(--shadow); }
+.about-stamp strong { display: block; font-size: 1.92rem; line-height: 1.15; color: var(--gold-bright); }
+.about-stamp span { color: #e4ddd2; font-size: .78rem; font-weight: 650; }
+.about-copy p { color: #5f636b; margin: 0 0 16px; }
+.about-copy strong { color: var(--deep); }
+.value-list { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 27px; }
+.value { display: flex; gap: 10px; align-items: flex-start; font-size: .87rem; font-weight: 700; color: var(--deep); }
+.tick { background: #f9edce; color: #9a711f; display: grid; place-items: center; width: 23px; height: 23px; line-height: 1; border-radius: 50%; flex: none; }
+/* Serviços */
+.services { background: var(--paper); }
+.section-head { max-width: 760px; text-align: center; margin: 0 auto 50px; }
+.section-head .lead { margin-inline: auto; }
+.service-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 21px; }
+.service-card { padding: 31px; background: #fff; border: 1px solid #e8e3d7; border-radius: 6px; transition: border-color .25s, transform .25s, box-shadow .25s; }
+.service-card:hover { transform: translateY(-6px); border-color: #c9a25d; box-shadow: var(--shadow); }
+.service-icon { display: grid; place-items: center; width: 58px; height: 58px; border-radius: 5px; background: #f9f2e5; color: #9b742e; font-size: 1.7rem; margin-bottom: 23px; }
+.service-card h3 { color: var(--deep); font-size: 1.14rem; line-height: 1.35; margin: 0 0 12px; }
+.service-card p { margin: 0; font-size: .9rem; color: #696b70; }
+.service-card-feature { background: #161719; border-color: #161719; }
+.service-card-feature .service-icon { background: #363024; color: var(--gold-bright); }
+.service-card-feature h3 { color: #fff; }
+.service-card-feature p { color: #d0cec9; }
+.service-link { display: inline-block; margin-top: 18px; color: #98712b; font-weight: 800; }
+.service-link:hover { color: #62430f; }
+/* Portfólio */
+.portfolio-head { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 36px; }
+.portfolio-head p { max-width: 600px; }
+.works-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 24px; }
+.work-card { border-radius: 6px; border: 1px solid var(--line); background: #fff; overflow: hidden; transition: transform .24s, box-shadow .24s; }
+.work-card:hover { transform: translateY(-6px); box-shadow: var(--shadow); }
+.work-img { height: 250px; background: #dedbd6; position: relative; overflow: hidden; }
+.work-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s; }
+.work-card:hover img { transform: scale(1.055); }
+.status { position: absolute; top: 17px; left: 17px; background: #217c53; color: #fff; border-radius: 3px; padding: 6px 13px; font-size: .74rem; font-weight: 800; }
+.status.progress { background: #aa7b29; }
+.work-body { padding: 25px; }
+.work-type { font-size: .73rem; color: #9b742c; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+.work-body h3 { color: var(--deep); font-size: 1.2rem; line-height: 1.3; margin: 8px 0 10px; }
+.work-location { color: #777879; display: flex; gap: 7px; align-items: center; font-size: .82rem; margin-bottom: 12px; }
+.work-body p { font-size: .89rem; color: #646970; margin: 0; }
+.empty-works { grid-column: 1/-1; text-align: center; padding: 56px 28px 58px; border-radius: 5px; border: 1px solid #e6dcc6; background: radial-gradient(circle at 80% 20%,#f0e6d0 0,transparent 40%),linear-gradient(135deg,#f9f7f2,#f3f0e9); }
+.empty-illustration { margin: 0 auto 9px; font-size: 3rem; width: 75px; height: 75px; border: 1px solid #cfac63; color: #b08b43; border-radius: 3px; line-height: 70px; }
+.empty-works h3 { margin: 12px auto; color: var(--deep); font-size: clamp(1.25rem,2.8vw,1.7rem); }
+.empty-works p { max-width: 500px; margin: 0 auto; color: #62636a; }
+.empty-link { display: inline-block; color: #8c641f; font-weight: 750; font-size: .87rem; margin-top: 20px; }
+.empty-link:hover { color: #4d3412; text-decoration: underline; }
+.works-note { color: #85817a; margin-top: 18px; font-size: .8rem; }
+/* Credibilidade */
+.why { background: #151617; color: #fff; position: relative; overflow: hidden; }
+.why::before { content: ''; position: absolute; right: -170px; top: -180px; width: 620px; height: 620px; border: 1px solid rgba(228, 191, 120, .12); border-radius: 50%; box-shadow: 0 0 0 85px rgba(228,191,120,.035),0 0 0 170px rgba(228,191,120,.02); pointer-events: none; }
+.why .eyebrow { color: var(--gold-bright); }
+.why .section-title { color: #fff; }
+.why .lead { color: #c5c3be; }
+.why-grid { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 30px; margin-top: 54px; }
+.why-item { padding-top: 22px; border-top: 2px solid #cb9d48; }
+.why-num { color: var(--gold-bright); font-size: 2.5rem; letter-spacing: -.06em; font-weight: 850; line-height: 1; }
+.why-item h3 { margin: 21px 0 10px; font-size: 1.03rem; color: #fff; }
+.why-item p { color: #c1bdb8; font-size: .89rem; margin: 0; }
+/* Contato */
+.contact { padding: 99px 0; background: #fff; }
+.contact-panel { display: flex; align-items: center; justify-content: space-between; gap: 36px; border: 1px solid #d8c49a; border-radius: 6px; padding: 62px 65px; background: linear-gradient(120deg,#f6f1e7,#fbfaf8); position: relative; overflow: hidden; }
+.contact-panel::before { content: ''; position: absolute; top: 0; left: 0; height: 5px; width: 140px; background: var(--gold); }
+.contact-panel .section-title { max-width: 610px; margin-bottom: 15px; }
+.contact-panel p { max-width: 570px; color: #666369; margin: 0; }
+.contact-actions { display: flex; flex-direction: column; gap: 12px; align-items: stretch; min-width: 214px; }
+.text-social { color: #866021; font-size: .85rem; font-weight: 760; text-align: center; padding: 6px; }
+.text-social:hover { text-decoration: underline; }
+/* Rodapé e acesso social */
+footer { background: #0b0c0e; color: #bdbab5; border-top: 3px solid #a47b31; }
+.footer-main { display: grid; grid-template-columns: 1.5fr .8fr 1fr; gap: 65px; padding: 68px 0 58px; }
+.footer-brand { display: flex; align-items: flex-start; gap: 10px; flex-direction: column; }
+.footer-brand img { width: 202px; height: auto; }
+.footer-brand span { font-weight: 700; letter-spacing: .11em; font-size: .67rem; color: #d6ae68; margin-top: 2px; }
+.footer-main p { margin: 17px 0 0; max-width: 380px; font-size: .9rem; line-height: 1.85; color: #b8b6b2; }
+.footer-main h4 { font-size: .95rem; color: #f6f1e8; margin: 4px 0 20px; }
+.footer-main a { display: block; font-size: .86rem; color: #c2bfba; margin-bottom: 12px; }
+.footer-main a:hover { color: var(--gold-bright); }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; padding: 22px 0 30px; border-top: 1px solid rgba(224, 197, 144, .18); color: #9e9c97; font-size: .78rem; }
+.footer-bottom a { color: #bc9b61; }
+.footer-bottom a:hover { color: #f3d59b; }
+.float-wa { position: fixed; right: 24px; bottom: 23px; z-index: 80; width: 60px; height: 60px; display: grid; place-items: center; border-radius: 50%; color: #fff; background: #20b65b; box-shadow: 0 10px 23px rgba(0,0,0,.2); transition: transform .2s,background .2s; }
+.float-wa:hover { background: #169148; transform: translateY(-3px); }
+.float-wa svg { width: 31px; height: 31px; fill: currentColor; }
+/* Responsividade */
+@media(max-width:1100px) { .nav-links { gap: 16px; } .nav-cta { font-size: .74rem; padding: 10px 12px; } .brand-logo { width: 155px; } .brand-text { font-size: .56rem; } .about-grid { gap: 49px; } }
+@media(max-width:970px) { .nav-links { position: absolute; top: 86px; left: 0; right: 0; flex-direction: column; align-items: stretch; padding: 16px 25px 23px; gap: 0; background: #141516; border-bottom: 1px solid #7e602b; display: none; box-shadow: 0 15px 27px #0005; } .nav-links.is-open { display: flex; } .nav-links a { padding: 13px 9px; border-bottom: 1px solid #383630; } .menu-toggle { display: flex; margin-left: auto; } .service-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } .about-grid { grid-template-columns: 1fr 1fr; gap: 38px; } .about-photo { height: 515px; } .why-grid { grid-template-columns: repeat(2,minmax(0,1fr)); row-gap: 40px; } .works-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } .footer-main { gap: 35px; } }
+@media(max-width:760px) { .container { padding-inline: 20px; } .section { padding: 76px 0; } .nav-wrap { height: 74px; } .nav-links { top: 74px; } .brand-logo { width: 151px; } .brand-text { font-size: .53rem; } .nav-cta { display: none; } .hero { margin-top: 74px; min-height: 660px; } .hero::before { background: linear-gradient(90deg,rgba(8,9,10,.93),rgba(8,9,10,.67)),linear-gradient(0deg,#0b0c0dea,transparent 75%),url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1100&q=80') center / cover; } .hero .container { padding-block: 65px; } h1 { font-size: clamp(2.55rem,9vw,4.7rem); } .hero-foot { margin-top: 49px; } .about-grid { grid-template-columns: 1fr; gap: 60px; } .about-photo { height: 440px; margin-right: 20px; } .about-stamp { left: 0; } .service-grid, .works-grid { grid-template-columns: 1fr 1fr; } .portfolio-head { align-items: flex-start; flex-direction: column; } .contact { padding: 74px 0; } .contact-panel { flex-direction: column; align-items: stretch; padding: 43px 35px; } .contact-actions { flex-direction: row; flex-wrap: wrap; } .footer-main { grid-template-columns: repeat(2,minmax(0,1fr)); } .footer-main>div:first-child { grid-column: 1/-1; } }
+@media(max-width:540px) { html { scroll-padding-top: 78px; } .brand-logo { width: 139px; } .brand-text { font-size: .45rem; padding-left: 7px; } .hero { min-height: 650px; } .hero-tag { font-size: .65rem; letter-spacing: .1em; } .hero p { line-height: 1.7; } .hero-actions { flex-direction: column; align-items: stretch; } .hero-actions .btn { width: 100%; } .hero-foot { gap: 20px 24px; } .hero-foot>div { flex: 1 1 120px; } .section-title { font-size: clamp(2rem,8.4vw,2.6rem); } .about-photo { height: 340px; } .about-stamp { padding: 14px 19px; } .about-stamp strong { font-size: 1.65rem; } .about-photo::after { width: 72px; height: 72px; } .value-list { grid-template-columns: 1fr 1fr; } .service-grid, .works-grid { grid-template-columns: 1fr; } .service-card { padding: 28px; } .why-grid { grid-template-columns: 1fr 1fr; gap: 31px 19px; } .why-num { font-size: 2rem; } .why-item h3 { font-size: .95rem; } .why-item p { font-size: .81rem; } .contact-panel { padding: 38px 24px; } .contact-actions { flex-direction: column; } .footer-main { grid-template-columns: 1fr; padding: 51px 0 37px; gap: 26px; } .footer-main>div:first-child { grid-column: auto; } .footer-main h4 { margin-bottom: 12px; } .float-wa { width: 54px; height: 54px; right: 17px; bottom: 17px; } .float-wa svg { width: 28px; height: 28px; } }
+@media(max-width:365px) { .brand-logo { width: 121px; } .brand-text { font-size: .42rem; } .container { padding-inline: 16px; } h1 { font-size: 2.36rem; } .value-list { grid-template-columns: 1fr; } .why-grid { grid-template-columns: 1fr; } }
+@media(prefers-reduced-motion:reduce) { *,*::before,*::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; } }
+  </style>
+  <link href="assets/favicon.png" rel="icon" type="image/png"/>
+  <meta content="pt_BR" property="og:locale"/>
+ </head>
+ <body>
+  <header>
+   <div class="container nav-wrap">
+    <a aria-label="JB Engenharia, voltar ao in&iacute;cio" class="brand" href="#inicio">
+     <img alt="Logotipo JB Engenharia" class="brand-logo" height="62" src="assets/logo-jb-aprimorada.png" width="170"/>
+     <span class="brand-text">
+      <strong>
+       CONSTRU&Ccedil;&Atilde;O LTDA
+      </strong>
+     </span>
+    </a>
+    <nav aria-label="Navega&ccedil;&atilde;o principal" class="nav-links" id="nav-links">
+     <a href="#inicio">
+      In&iacute;cio
+     </a>
+     <a href="#sobre">
+      Sobre n&oacute;s
+     </a>
+     <a href="#servicos">
+      Servi&ccedil;os
+     </a>
+     <a href="#obras">
+      Obras
+     </a>
+     <a href="#contato">
+      Contato
+     </a>
+    </nav>
+    <a class="btn btn-green nav-cta" href="https://wa.me/5538998630522?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20com%20a%20JB%20Engenharia." rel="noopener noreferrer" target="_blank">
+     Falar no WhatsApp
+     <span class="arrow">
+      &nearrow;
+     </span>
+    </a>
+    <button aria-controls="nav-links" aria-expanded="false" aria-label="Abrir menu" class="menu-toggle" id="menu-toggle">
+     ☰
+    </button>
+   </div>
+  </header>
+  <main>
+   <section aria-labelledby="hero-title" class="hero" id="inicio">
+    <div class="container">
+     <span class="hero-tag">
+      Engenharia que transforma projetos em realidade
+     </span>
+     <h1 id="hero-title">
+      Construindo o
+      <em>
+       sonho da casa pr&oacute;pria.
+      </em>
+     </h1>
+     <p>
+      Qualidade, compromisso t&eacute;cnico e confian&ccedil;a do projeto &agrave; entrega das chaves em Mirabela e regi&atilde;o.
+     </p>
+     <div class="hero-actions">
+      <a class="btn btn-white" href="#obras">
+       Conhe&ccedil;a nossas obras
+       <span class="arrow">
+        &nearrow;
+       </span>
+      </a>
+      <a class="btn btn-green" href="https://wa.me/5538998630522?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20com%20a%20JB%20Engenharia." rel="noopener noreferrer" target="_blank">
+       Solicitar or&ccedil;amento
+       <span class="arrow">
+        &nearrow;
+       </span>
+      </a>
+     </div>
+     <div class="hero-foot">
+      <div>
+       <strong>
+        Desde 2013
+       </strong>
+       <span>
+        Experi&ecirc;ncia t&eacute;cnica
+       </span>
+      </div>
+      <div>
+       <strong>
+        Mirabela / MG
+       </strong>
+       <span>
+        Sede da empresa
+       </span>
+      </div>
+      <div>
+       <strong>
+        Atua&ccedil;&atilde;o nacional
+       </strong>
+       <span>
+        Viv&ecirc;ncia em v&aacute;rios estados
+       </span>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section class="section" id="sobre">
+    <div class="container about-grid">
+     <div aria-label="Refer&ecirc;ncia visual de arquitetura e constru&ccedil;&atilde;o civil" class="about-photo" role="img">
+      <div class="about-stamp">
+       <strong>
+        +10 anos
+       </strong>
+       <span>
+        de experi&ecirc;ncia em engenharia civil
+       </span>
+      </div>
+     </div>
+     <div class="about-copy">
+      <span class="eyebrow">
+       Conhe&ccedil;a a JB Engenharia
+      </span>
+      <h2 class="section-title">
+       Compromisso t&eacute;cnico com cada detalhe da sua obra.
+      </h2>
+      <p>
+       A
+       <strong>
+        JB Engenharia e Constru&ccedil;&atilde;o LTDA
+       </strong>
+       , sediada em Mirabela/MG, atua com solu&ccedil;&otilde;es em engenharia e constru&ccedil;&atilde;o, unindo planejamento, execu&ccedil;&atilde;o respons&aacute;vel e aten&ccedil;&atilde;o &agrave;s necessidades de cada cliente.
+      </p>
+      <p>
+       Sob a responsabilidade t&eacute;cnica de
+       <strong>
+        Jo&atilde;o Batista Fonseca
+       </strong>
+       , engenheiro civil graduado desde 2013, nossa trajet&oacute;ria re&uacute;ne viv&ecirc;ncia em
+       <strong>
+        obras residenciais, empreendimentos do programa Minha Casa, Minha Vida, pavimenta&ccedil;&atilde;o urbana e rodovi&aacute;ria e obras emergenciais
+       </strong>
+       .
+      </p>
+      <p>
+       Al&eacute;m do Norte de Minas, o profissional acumula experi&ecirc;ncia em projetos e obras nos estados de
+       <strong>
+        MG, MA, PA, CE, RN e PB
+       </strong>
+       .
+      </p>
+      <div class="value-list">
+       <div class="value">
+        <span class="tick">
+         &checkmark;
+        </span>
+        Rigor t&eacute;cnico
+       </div>
+       <div class="value">
+        <span class="tick">
+         &checkmark;
+        </span>
+        Respeito aos prazos
+       </div>
+       <div class="value">
+        <span class="tick">
+         &checkmark;
+        </span>
+        Transpar&ecirc;ncia
+       </div>
+       <div class="value">
+        <span class="tick">
+         &checkmark;
+        </span>
+        Satisfa&ccedil;&atilde;o dos clientes
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section class="section services" id="servicos">
+    <div class="container">
+     <div class="section-head">
+      <span class="eyebrow">
+       O que fazemos
+      </span>
+      <h2 class="section-title">
+       Solu&ccedil;&otilde;es completas em engenharia e constru&ccedil;&atilde;o.
+      </h2>
+      <p class="lead">
+       Da ideia inicial &agrave; execu&ccedil;&atilde;o, cuidamos de cada etapa com responsabilidade, planejamento e qualidade.
+      </p>
+     </div>
+     <div class="service-grid">
+      <article class="service-card service-card-feature">
+       <div aria-hidden="true" class="service-icon">
+        ⌂
+       </div>
+       <h3>
+        Constru&ccedil;&atilde;o residencial
+       </h3>
+       <p>
+        Moradias do programa Minha Casa, Minha Vida, resid&ecirc;ncias convencionais e projetos de alto padr&atilde;o.
+       </p>
+      </article>
+      <article class="service-card">
+       <div aria-hidden="true" class="service-icon">
+        ▤
+       </div>
+       <h3>
+        Gest&atilde;o e gerenciamento de obras
+       </h3>
+       <p>
+        Planejamento de etapas, coordena&ccedil;&atilde;o de equipes, controle t&eacute;cnico, custos e acompanhamento da execu&ccedil;&atilde;o.
+       </p>
+      </article>
+      <article class="service-card">
+       <div aria-hidden="true" class="service-icon">
+        ⚒
+       </div>
+       <h3>
+        Reformas e amplia&ccedil;&otilde;es
+       </h3>
+       <p>
+        Renova&ccedil;&atilde;o, moderniza&ccedil;&atilde;o e expans&atilde;o de espa&ccedil;os, priorizando funcionalidade e seguran&ccedil;a.
+       </p>
+      </article>
+      <article class="service-card">
+       <div aria-hidden="true" class="service-icon">
+        ▰
+       </div>
+       <h3>
+        Pavimenta&ccedil;&atilde;o e infraestrutura
+       </h3>
+       <p>
+        Experi&ecirc;ncia em pavimenta&ccedil;&atilde;o urbana e rodovi&aacute;ria e servi&ccedil;os de infraestrutura e obras emergenciais.
+       </p>
+      </article>
+      <article class="service-card">
+       <div aria-hidden="true" class="service-icon">
+        ⌑
+       </div>
+       <h3>
+        Vistorias, laudos e projetos
+       </h3>
+       <p>
+        Servi&ccedil;os t&eacute;cnicos de engenharia civil, vistorias, elabora&ccedil;&atilde;o de laudos e desenvolvimento de projetos.
+       </p>
+      </article>
+      <article class="service-card">
+       <div aria-hidden="true" class="service-icon">
+        &nearrow;
+       </div>
+       <h3>
+        Precisa de uma solu&ccedil;&atilde;o espec&iacute;fica?
+       </h3>
+       <p>
+        Converse com a nossa equipe para avaliar as necessidades da sua obra e solicitar um or&ccedil;amento.
+       </p>
+       <a class="service-link" href="https://wa.me/5538998630522" rel="noopener noreferrer" target="_blank">
+        Entre em contato &rarr;
+       </a>
+      </article>
+     </div>
+    </div>
+   </section>
+   <section class="section" id="obras">
+    <div class="container">
+     <div class="portfolio-head">
+      <div>
+       <span class="eyebrow">
+        Portf&oacute;lio
+       </span>
+       <h2 class="section-title">
+        Obras e projetos.
+       </h2>
+       <p class="lead">
+        Conhe&ccedil;a os tipos de projetos que fazem parte da nossa atua&ccedil;&atilde;o. Confira aqui as obras cadastradas pela equipe.
+       </p>
+      </div>
+      <a class="btn btn-navy" href="#contato">
+       Quero fazer meu projeto
+       <span class="arrow">
+        &nearrow;
+       </span>
+      </a>
+     </div>
+     <div aria-live="polite" class="works-grid" id="works-grid">
+      <div class="empty-works">
+       <div aria-hidden="true" class="empty-illustration">
+        ⌂
+       </div>
+       <span class="eyebrow">
+        Portf&oacute;lio em prepara&ccedil;&atilde;o
+       </span>
+       <h3>
+        Novas hist&oacute;rias ser&atilde;o apresentadas aqui.
+       </h3>
+       <p>
+        Em breve, voc&ecirc; poder&aacute; conhecer nossos projetos conclu&iacute;dos e em andamento, com fotos e detalhes de cada obra.
+       </p>
+       <a class="empty-link" href="https://www.instagram.com/jb_engenharia18/" rel="noopener noreferrer" target="_blank">
+        Enquanto isso, acompanhe nosso Instagram &nearrow;
+       </a>
+      </div>
+     </div>
+     <p class="works-note" id="works-note">
+      As obras ser&atilde;o cadastradas pela equipe JB Engenharia e publicadas nesta galeria.
+     </p>
+    </div>
+   </section>
+   <section aria-labelledby="why-title" class="section why">
+    <div class="container">
+     <span class="eyebrow">
+      Nossos diferenciais
+     </span>
+     <h2 class="section-title" id="why-title">
+      Por que escolher a
+      <br/>
+      JB Engenharia?
+     </h2>
+     <p class="lead">
+      Responsabilidade, acompanhamento t&eacute;cnico e respeito &agrave;s pessoas por tr&aacute;s de cada projeto.
+     </p>
+     <div class="why-grid">
+      <div class="why-item">
+       <div class="why-num">
+        2013
+       </div>
+       <h3>
+        Trajet&oacute;ria t&eacute;cnica
+       </h3>
+       <p>
+        Experi&ecirc;ncia profissional em engenharia civil desde 2013, com atua&ccedil;&atilde;o em diferentes tipos de obras.
+       </p>
+      </div>
+      <div class="why-item">
+       <div class="why-num">
+        01
+       </div>
+       <h3>
+        Lideran&ccedil;a do engenheiro
+       </h3>
+       <p>
+        Acompanhamento e lideran&ccedil;a t&eacute;cnica de Jo&atilde;o Batista Fonseca nas etapas da obra.
+       </p>
+      </div>
+      <div class="why-item">
+       <div class="why-num">
+        02
+       </div>
+       <h3>
+        Planejamento respons&aacute;vel
+       </h3>
+       <p>
+        Aten&ccedil;&atilde;o aos prazos, or&ccedil;amento, execu&ccedil;&atilde;o e comunica&ccedil;&atilde;o transparente com o cliente.
+       </p>
+      </div>
+      <div class="why-item">
+       <div class="why-num">
+        03
+       </div>
+       <h3>
+        Compromisso com qualidade
+       </h3>
+       <p>
+        Foco no rigor construtivo e na satisfa&ccedil;&atilde;o do cliente em cada entrega.
+       </p>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section class="contact" id="contato">
+    <div class="container">
+     <div class="contact-panel">
+      <div>
+       <span class="eyebrow">
+        Vamos construir juntos?
+       </span>
+       <h2 class="section-title">
+        Seu projeto merece come&ccedil;ar com confian&ccedil;a.
+       </h2>
+       <p>
+        Conte sua ideia para a JB Engenharia. Vamos conversar sobre o que voc&ecirc; precisa para tirar seu projeto do papel.
+       </p>
+      </div>
+      <div class="contact-actions">
+       <a class="btn btn-green" href="https://wa.me/5538998630522?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20com%20a%20JB%20Engenharia." rel="noopener noreferrer" target="_blank">
+        Solicitar or&ccedil;amento
+        <span class="arrow">
+         &nearrow;
+        </span>
+       </a>
+       <a class="btn btn-navy" href="tel:+5538998630522">
+        Ligar agora
+        <span class="arrow">
+         &nearrow;
+        </span>
+       </a>
+       <a class="text-social" href="https://www.instagram.com/jb_engenharia18/" rel="noopener noreferrer" target="_blank">
+        Acompanhe no Instagram &nearrow;
+       </a>
+      </div>
+     </div>
+    </div>
+   </section>
+  </main>
+  <footer>
+   <div class="container">
+    <div class="footer-main">
+     <div>
+      <div class="footer-brand">
+       <img alt="JB Engenharia" height="76" loading="lazy" src="assets/logo-jb-aprimorada.png" width="211"/>
+       <span>
+        JB ENGENHARIA E CONSTRU&Ccedil;&Atilde;O LTDA
+       </span>
+      </div>
+      <p>
+       Construindo o sonho da casa pr&oacute;pria. Engenharia civil com qualidade, compromisso t&eacute;cnico e confian&ccedil;a.
+      </p>
+     </div>
+     <div>
+      <h4>
+       Navega&ccedil;&atilde;o
+      </h4>
+      <a href="#sobre">
+       Sobre n&oacute;s
+      </a>
+      <a href="#servicos">
+       Servi&ccedil;os
+      </a>
+      <a href="#obras">
+       Nossas obras
+      </a>
+      <a href="#contato">
+       Contato
+      </a>
+     </div>
+     <div>
+      <h4>
+       Contato e localiza&ccedil;&atilde;o
+      </h4>
+      <p>
+       Mirabela / Minas Gerais
+       <br/>
+       Atendimento no Norte de Minas
+      </p>
+      <a href="https://wa.me/5538998630522" rel="noopener noreferrer" target="_blank">
+       WhatsApp: (38) 99863-0522
+      </a>
+      <a href="tel:+5538998630522">
+       Telefone: +55 38 99863-0522
+      </a>
+      <a href="https://www.instagram.com/jb_engenharia18/" rel="noopener noreferrer" target="_blank">
+       Instagram: @jb_engenharia18
+      </a>
+     </div>
+    </div>
+    <div class="footer-bottom">
+     <span>
+      &copy;
+      <span id="year">
+       2026
+      </span>
+      JB Engenharia e Constru&ccedil;&atilde;o LTDA. Todos os direitos reservados.
+     </span>
+     <a href="/admin/">
+      &Aacute;rea do Administrador
+     </a>
+    </div>
+   </div>
+  </footer>
+  <a aria-label="Conversar pelo WhatsApp" class="float-wa" href="https://wa.me/5538998630522?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20com%20a%20JB%20Engenharia." rel="noopener noreferrer" target="_blank">
+   <svg aria-hidden="true" viewbox="0 0 32 32">
+    <path d="M16 .8A15.1 15.1 0 0 0 3.1 23.6L.9 31l7.6-2A15.2 15.2 0 1 0 16 .8zm0 27.6a12.3 12.3 0 0 1-6.3-1.7l-.45-.27-4.5 1.18 1.2-4.38-.29-.46A12.4 12.4 0 1 1 16 28.4zm6.8-9.3c-.37-.18-2.2-1.08-2.54-1.2-.34-.13-.58-.19-.83.18-.25.37-.95 1.2-1.16 1.44-.21.25-.43.28-.8.1-.37-.18-1.56-.57-2.96-1.83-1.1-.98-1.84-2.2-2.05-2.56-.21-.37-.02-.56.16-.74.17-.16.37-.43.56-.65.18-.21.25-.37.37-.61.12-.25.06-.46-.03-.65-.09-.18-.83-2-1.14-2.73-.3-.72-.6-.62-.83-.63h-.7c-.25 0-.65.1-1 .47-.34.37-1.3 1.27-1.3 3.1s1.33 3.6 1.52 3.85c.18.24 2.62 4 6.35 5.61.89.38 1.59.6 2.13.77.9.28 1.72.24 2.37.15.72-.11 2.2-.9 2.51-1.77.31-.86.31-1.6.22-1.76-.09-.15-.34-.24-.71-.43z">
+    </path>
+   </svg>
+  </a>
+  <script>
+   // Navegação responsiva, sem dependências.
+  const toggle=document.getElementById('menu-toggle'),nav=document.getElementById('nav-links');
+  toggle.addEventListener('click',()=>{const open=nav.classList.toggle('is-open');toggle.setAttribute('aria-expanded',String(open));toggle.setAttribute('aria-label',open?'Fechar menu':'Abrir menu');toggle.textContent=open?'✕':'☰';});
+  nav.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{nav.classList.remove('is-open');toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-label','Abrir menu');toggle.textContent='☰';}));
+  document.getElementById('year').textContent=new Date().getFullYear();
+  // data/obras.json é gerado automaticamente durante o deploy Netlify pelo script em scripts/.
+  // Imagens e informações cadastradas são transformadas em elementos DOM com textContent (sem injeção HTML).
+  const gallery=document.getElementById('works-grid');
+  function renderObras(items){if(!Array.isArray(items)||!items.length)return;gallery.replaceChildren();items.forEach(o=>{if(!o||!o.title)return;const card=document.createElement('article');card.className='work-card';const photo=document.createElement('div');photo.className='work-img';const img=document.createElement('img');img.src=typeof o.image==='string'&&/^(\/[^/]|https:\/\/)/.test(o.image)?o.image:'/assets/obra-placeholder.svg';img.alt='Foto da obra: '+o.title;img.loading='lazy';img.onerror=()=>{img.onerror=null;img.src='/assets/obra-placeholder.svg';};photo.appendChild(img);const status=document.createElement('span');status.className='status'+(o.status==='Em Andamento'?' progress':'');status.textContent=o.status||'Obra';photo.appendChild(status);const body=document.createElement('div');body.className='work-body';const cat=document.createElement('span');cat.className='work-type';cat.textContent=o.category||'Engenharia';const h=document.createElement('h3');h.textContent=o.title;const place=document.createElement('div');place.className='work-location';place.textContent='⌖ '+(o.location||'Local não informado');const desc=document.createElement('p');desc.textContent=o.description||'';body.append(cat,h,place,desc);card.append(photo,body);gallery.appendChild(card);});document.getElementById('works-note').textContent='Portfólio atualizado com obras cadastradas pela JB Engenharia.';}
+  fetch('/data/obras.json',{cache:'no-cache'}).then(r=>{if(!r.ok)throw Error('Sem dados');return r.json()}).then(renderObras).catch(()=>{});
+  </script>
+ </body>
+</html>

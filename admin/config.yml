@@ -1,0 +1,36 @@
+backend:
+  name: git-gateway
+  branch: main
+
+site_url: /
+display_url: /
+locale: pt
+media_folder: "assets/obras"
+public_folder: "/assets/obras"
+
+collections:
+  - name: "obras"
+    label: "Portfólio de Obras"
+    label_singular: "Obra"
+    description: "Cadastre aqui as obras que aparecerão automaticamente na galeria após a publicação do site."
+    folder: "obras"
+    create: true
+    delete: true
+    format: "json"
+    extension: "json"
+    slug: "{{slug}}"
+    identifier_field: "title"
+    summary: "{{title}} — {{status}}"
+    fields:
+      - { label: "Título da Obra", name: "title", widget: "string", required: true }
+      - label: "Tipo / Categoria"
+        name: "category"
+        widget: "select"
+        options: ["Residencial", "Comercial", "Reformas", "Infraestrutura"]
+      - label: "Status"
+        name: "status"
+        widget: "select"
+        options: ["Concluída", "Em Andamento"]
+      - { label: "Cidade / Local da Obra", name: "location", widget: "string", required: true, hint: "Ex.: Mirabela / MG" }
+      - { label: "Foto Principal", name: "image", widget: "image", required: true }
+      - { label: "Descrição dos Serviços", name: "description", widget: "text", required: true }
