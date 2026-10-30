@@ -1,0 +1,37 @@
+{
+  "eyebrow": "ENGENHARIA COM PROPÓSITO",
+  "title": "Construindo o sonho",
+  "title_highlight": "da casa própria.",
+  "subtitle": "Qualidade, compromisso técnico e confiança do projeto à entrega das chaves em Mirabela e região.",
+  "hero_image": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=2200&q=85",
+  "hero_note": "Engenharia, planejamento e execução em cada detalhe.",
+  "primary_button": "Conheça nossas obras",
+  "secondary_button": "Solicitar orçamento",
+  "stats": [
+    {
+      "value": "Desde 2013",
+      "label": "Experiência técnica"
+    },
+    {
+      "value": "Mirabela / MG",
+      "label": "Nosso ponto de partida"
+    },
+    {
+      "value": "Atuação nacional",
+      "label": "Vivência em vários estados"
+    }
+  ],
+  "services_title": "Soluções para cada etapa da sua obra.",
+  "services_intro": "Da concepção do projeto ao acompanhamento da execução, atuamos com planejamento, precisão e compromisso.",
+  "works_title": "Projetos que contam nossa história.",
+  "works_intro": "Conheça alguns dos trabalhos e acompanhe a evolução de nossas obras.",
+  "strength_title": "Compromisso que se traduz em cada detalhe.",
+  "strength_intro": "Trabalhamos com proximidade, critérios técnicos e foco em resultados que permanecem.",
+  "contact_title": "Seu projeto merece começar do jeito certo.",
+  "contact_description": "Converse com nossa equipe e dê o primeiro passo para transformar seu plano em realidade.",
+  "about_section_visible": true,
+  "services_section_visible": true,
+  "strength_section_visible": true,
+  "portfolio_section_visible": true,
+  "testimonials_section_visible": true
+}

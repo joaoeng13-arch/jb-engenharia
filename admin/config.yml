@@ -1,39 +1,459 @@
+# JB Engenharia · Decap CMS + GitHub + Cloudflare Pages
+# Mantém o Worker OAuth já configurado e o repositório existente.
+# NÃO publique Client Secret ou tokens neste arquivo.
+
 backend:
   name: github
   repo: joaoeng13-arch/jb-engenharia
   branch: main
-  base_url: https://jb-engenharia-oauth.SEU_SUBDOMINIO.workers.dev
+  base_url: https://jb-engenharia-oauth.jb-engenharia2018.workers.dev
   auth_endpoint: auth
-
-site_url: /
-display_url: /
+site_url: https://jbengenharia.app
+display_url: https://jbengenharia.app
 locale: pt
-media_folder: "assets/obras"
-public_folder: "/assets/obras"
-
+media_folder: assets/uploads
+public_folder: /assets/uploads
 collections:
-  - name: "obras"
-    label: "Portfólio de Obras"
-    label_singular: "Obra"
-    description: "Cadastre aqui as obras que aparecerão automaticamente na galeria após a publicação do site."
-    folder: "obras"
-    create: true
-    delete: true
-    format: "json"
-    extension: "json"
-    slug: "{{slug}}"
-    identifier_field: "title"
-    summary: "{{title}} — {{status}}"
+- name: obras
+  label: Portfólio de Obras
+  label_singular: Obra
+  description: Cadastre obras, fotos, informações técnicas e destaque no site. Obras existentes continuam compatíveis.
+  folder: obras
+  create: true
+  delete: true
+  format: json
+  extension: json
+  slug: '{{slug}}'
+  identifier_field: title
+  summary: '{{title}} — {{status}}'
+  fields:
+  - label: Título da obra
+    name: title
+    widget: string
+  - label: Tipo / Categoria
+    name: category
+    widget: select
+    options:
+    - Residencial
+    - Comercial
+    - Reformas
+    - Infraestrutura
+    - Institucional
+    - Industrial
+    default: Residencial
+  - label: Status
+    name: status
+    widget: select
+    options:
+    - Planejamento
+    - Em Andamento
+    - Concluída
+    default: Em Andamento
+  - label: Cidade / Local
+    name: location
+    widget: string
+  - label: Descrição breve no card
+    name: short_description
+    widget: text
+    required: false
+  - label: Descrição dos serviços
+    name: description
+    widget: text
+  - label: Detalhamento completo
+    name: full_description
+    widget: text
+    required: false
+  - label: Foto principal da obra
+    name: image
+    widget: image
+  - label: Galeria adicional de fotografias
+    name: gallery
+    widget: list
     fields:
-      - { label: "Título da Obra", name: "title", widget: "string", required: true }
-      - label: "Tipo / Categoria"
-        name: "category"
-        widget: "select"
-        options: ["Residencial", "Comercial", "Reformas", "Infraestrutura"]
-      - label: "Status"
-        name: "status"
-        widget: "select"
-        options: ["Concluída", "Em Andamento"]
-      - { label: "Cidade / Local da Obra", name: "location", widget: "string", required: true, hint: "Ex.: Mirabela / MG" }
-      - { label: "Foto Principal", name: "image", widget: "image", required: true }
-      - { label: "Descrição dos Serviços", name: "description", widget: "text", required: true }
+    - label: Fotografia
+      name: image
+      widget: image
+    - label: Legenda
+      name: caption
+      widget: string
+      required: false
+    required: false
+    hint: Adicione quantas fotos precisar; a imagem principal aparece primeiro.
+  - label: Área construída em m²
+    name: area
+    widget: number
+    required: false
+    value_type: float
+    min: 0
+  - label: Data de início
+    name: start_date
+    widget: datetime
+    required: false
+    date_format: DD/MM/YYYY
+    time_format: false
+    format: YYYY-MM-DD
+  - label: Data de conclusão
+    name: end_date
+    widget: datetime
+    required: false
+    date_format: DD/MM/YYYY
+    time_format: false
+    format: YYYY-MM-DD
+  - label: Serviços executados (resumo)
+    name: services_done
+    widget: string
+    required: false
+  - label: URL de vídeo / apresentação
+    name: video_url
+    widget: string
+    required: false
+  - label: Publicar no site
+    name: published
+    widget: boolean
+    default: true
+  - label: Destacar na galeria
+    name: featured
+    widget: boolean
+    default: false
+  - label: Ordem de exibição (menor primeiro)
+    name: order
+    widget: number
+    required: false
+    value_type: int
+    min: 0
+    default: 50
+- name: configuracoes
+  label: Configurações e conteúdos do site
+  label_singular: Configuração
+  description: Edite os textos, contatos, banners, redes sociais, ícones e identidade visual sem alterar HTML.
+  files:
+  - name: empresa
+    label: Dados da empresa e Sobre Nós
+    file: data/empresa.json
+    fields:
+    - label: Razão social
+      name: name
+      widget: string
+    - label: Nome de apresentação
+      name: short_name
+      widget: string
+    - label: Slogan
+      name: tagline
+      widget: string
+    - label: Engenheiro responsável
+      name: engineer
+      widget: string
+    - label: Ano de formação / experiência
+      name: since
+      widget: string
+    - label: Cidade da sede
+      name: city
+      widget: string
+    - label: Região atendida
+      name: region
+      widget: string
+    - label: Título da seção Sobre Nós
+      name: about_title
+      widget: string
+    - label: Apresentação curta
+      name: about_intro
+      widget: text
+    - label: História, experiência e atuação
+      name: about_text
+      widget: text
+    - label: Fotografia da seção Sobre Nós
+      name: about_image
+      widget: image
+      required: false
+      hint: Pode escolher uma foto cadastrada ou colar uma URL HTTPS.
+    - label: Valores e destaques resumidos
+      name: values
+      widget: list
+      field:
+        label: Valor
+        name: value
+        widget: string
+    - label: Texto institucional do rodapé
+      name: footer_text
+      widget: text
+  - name: inicio
+    label: Página inicial, banners e seções
+    file: data/inicio.json
+    fields:
+    - label: Texto acima do título
+      name: eyebrow
+      widget: string
+    - label: Título principal - parte 1
+      name: title
+      widget: string
+    - label: Título principal - parte 2
+      name: title_highlight
+      widget: string
+    - label: Subtítulo principal
+      name: subtitle
+      widget: text
+    - label: Imagem principal do banner
+      name: hero_image
+      widget: image
+      required: false
+    - label: Mensagem do destaque no banner
+      name: hero_note
+      widget: text
+    - label: Texto do botão para ver obras
+      name: primary_button
+      widget: string
+    - label: Texto do botão para orçamento
+      name: secondary_button
+      widget: string
+    - label: Indicadores no banner
+      name: stats
+      widget: list
+      fields:
+      - label: Destaque
+        name: value
+        widget: string
+      - label: Descrição
+        name: label
+        widget: string
+    - label: Título dos serviços
+      name: services_title
+      widget: string
+    - label: Descrição dos serviços
+      name: services_intro
+      widget: text
+    - label: Título do portfólio
+      name: works_title
+      widget: string
+    - label: Descrição do portfólio
+      name: works_intro
+      widget: text
+    - label: Título dos diferenciais
+      name: strength_title
+      widget: string
+    - label: Descrição dos diferenciais
+      name: strength_intro
+      widget: text
+    - label: Título do contato
+      name: contact_title
+      widget: string
+    - label: Mensagem de contato
+      name: contact_description
+      widget: text
+    - label: Mostrar seção Sobre Nós
+      name: about_section_visible
+      widget: boolean
+      default: true
+    - label: Mostrar Serviços
+      name: services_section_visible
+      widget: boolean
+      default: true
+    - label: Mostrar Diferenciais
+      name: strength_section_visible
+      widget: boolean
+      default: true
+    - label: Mostrar Portfólio
+      name: portfolio_section_visible
+      widget: boolean
+      default: true
+    - label: Mostrar Depoimentos
+      name: testimonials_section_visible
+      widget: boolean
+      default: true
+  - name: contatos
+    label: Contatos e mensagens do WhatsApp
+    file: data/contatos.json
+    fields:
+    - label: WhatsApp (DDI + DDD + número, somente dígitos)
+      name: whatsapp_number
+      widget: string
+      hint: 'Exemplo: 5538998630522. Muda TODOS os links de WhatsApp do site.'
+    - label: Telefone exibido no site
+      name: phone_display
+      widget: string
+    - label: E-mail comercial
+      name: email
+      widget: string
+      required: false
+    - label: URL do Instagram
+      name: instagram_url
+      widget: string
+      required: false
+    - label: Usuário do Instagram
+      name: instagram_handle
+      widget: string
+      required: false
+    - label: Exibir Instagram
+      name: show_instagram
+      widget: boolean
+      default: true
+    - label: Cidade e estado
+      name: location
+      widget: string
+    - label: Região de atendimento
+      name: region
+      widget: string
+    - label: Horário de atendimento
+      name: hours
+      widget: string
+      required: false
+    - label: Mensagens automáticas
+      name: messages
+      widget: object
+      fields:
+      - label: Mensagem geral
+        name: general
+        widget: text
+      - label: Solicitação de orçamento
+        name: quote
+        widget: text
+      - label: Falar com engenheiro
+        name: engineer
+        widget: text
+      - label: Informações de serviços
+        name: service
+        widget: text
+        hint: Use {servico} para inserir o nome do serviço escolhido.
+      - label: Informações de uma obra
+        name: work
+        widget: text
+        hint: Use {obra} para incluir automaticamente o título da obra no texto.
+    - label: Textos dos botões de contato
+      name: labels
+      widget: object
+      fields:
+      - label: Botão no menu
+        name: header
+        widget: string
+      - label: Botão na seção Contato
+        name: contact
+        widget: string
+      - label: Botão do engenheiro
+        name: engineer
+        widget: string
+      - label: Botão dos serviços
+        name: service
+        widget: string
+      - label: Botão da galeria de obras
+        name: work
+        widget: string
+  - name: servicos
+    label: Catálogo de serviços
+    file: data/servicos.json
+    fields:
+    - label: Serviços exibidos no site
+      name: items
+      widget: list
+      fields:
+      - label: Nome do serviço
+        name: title
+        widget: string
+      - label: Descrição
+        name: description
+        widget: text
+      - label: Ícone SVG
+        name: icon
+        widget: select
+        options: &id001
+        - home
+        - blueprint
+        - hardhat
+        - road
+        - tools
+        - shield
+        - clipboard
+        - calendar
+        - location
+        - measure
+        - camera
+        - clock
+        - phone
+        - mail
+        - layers
+        - eye
+        default: home
+      - label: Visível no site
+        name: visible
+        widget: boolean
+        default: true
+      hint: Arraste para mudar a ordem dos cards; desligue Visível para ocultar.
+  - name: diferenciais
+    label: Diferenciais e confiança
+    file: data/diferenciais.json
+    fields:
+    - label: Cards da seção Diferenciais
+      name: items
+      widget: list
+      fields:
+      - label: Título
+        name: title
+        widget: string
+      - label: Descrição
+        name: description
+        widget: text
+      - label: Ícone SVG
+        name: icon
+        widget: select
+        options: *id001
+        default: shield
+      - label: Exibir
+        name: visible
+        widget: boolean
+        default: true
+  - name: depoimentos
+    label: Depoimentos de clientes
+    file: data/depoimentos.json
+    fields:
+    - label: Título da seção
+      name: title
+      widget: string
+    - label: Depoimentos (somente reais, com autorização)
+      name: items
+      widget: list
+      fields:
+      - label: Nome do cliente
+        name: name
+        widget: string
+      - label: Cidade
+        name: city
+        widget: string
+        required: false
+      - label: Identificação ou relação com a obra
+        name: role
+        widget: string
+        required: false
+      - label: Depoimento
+        name: quote
+        widget: text
+      - label: Exibir publicamente
+        name: visible
+        widget: boolean
+        default: true
+      required: false
+      hint: A seção fica oculta enquanto não houver depoimentos publicados.
+  - name: aparencia
+    label: Logomarcas, favicon e SEO
+    file: data/aparencia.json
+    fields:
+    - label: Logomarca branca (cabeçalho e rodapé)
+      name: logo_white
+      widget: image
+    - label: Logomarca preta (para outros usos)
+      name: logo_dark
+      widget: image
+      required: false
+    - label: Favicon do navegador
+      name: favicon
+      widget: image
+    - label: Título do navegador e Google
+      name: browser_title
+      widget: string
+    - label: Descrição para buscadores
+      name: seo_description
+      widget: text
+    - label: Imagem de compartilhamento
+      name: og_image
+      widget: image
+      required: false
+    - label: Texto de direitos autorais no rodapé
+      name: footer_copyright
+      widget: string

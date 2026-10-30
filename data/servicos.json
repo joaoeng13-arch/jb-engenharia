@@ -1,0 +1,34 @@
+{
+  "items": [
+    {
+      "title": "Construção residencial",
+      "description": "Casas populares, Minha Casa Minha Vida e residências de alto padrão, com acompanhamento técnico de cada etapa.",
+      "icon": "home",
+      "visible": true
+    },
+    {
+      "title": "Gestão e gerenciamento de obras",
+      "description": "Planejamento, orçamento, cronograma e controle para maior previsibilidade e qualidade na execução.",
+      "icon": "clipboard",
+      "visible": true
+    },
+    {
+      "title": "Reformas e ampliações",
+      "description": "Modernizações, adequações e ampliações com atenção à funcionalidade, segurança e acabamento.",
+      "icon": "tools",
+      "visible": true
+    },
+    {
+      "title": "Pavimentação e infraestrutura",
+      "description": "Experiência em pavimentação urbana e rodoviária, obras emergenciais e infraestrutura.",
+      "icon": "road",
+      "visible": true
+    },
+    {
+      "title": "Vistorias, laudos e projetos",
+      "description": "Projetos e avaliações técnicas de engenharia civil, com rigor e responsabilidade profissional.",
+      "icon": "blueprint",
+      "visible": true
+    }
+  ]
+}

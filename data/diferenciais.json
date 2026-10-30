@@ -1,0 +1,28 @@
+{
+  "items": [
+    {
+      "title": "Experiência técnica",
+      "description": "Atuação profissional desde 2013, em diferentes tipos de obra.",
+      "icon": "clipboard",
+      "visible": true
+    },
+    {
+      "title": "Acompanhamento próximo",
+      "description": "Engenheiro responsável envolvido no planejamento e na condução dos trabalhos.",
+      "icon": "hardhat",
+      "visible": true
+    },
+    {
+      "title": "Planejamento responsável",
+      "description": "Atenção a prazos, orçamento e execução bem coordenada.",
+      "icon": "calendar",
+      "visible": true
+    },
+    {
+      "title": "Qualidade e transparência",
+      "description": "Comunicação clara e dedicação a cada etapa do projeto.",
+      "icon": "shield",
+      "visible": true
+    }
+  ]
+}

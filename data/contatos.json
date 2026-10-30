@@ -1,0 +1,25 @@
+{
+  "whatsapp_number": "5538998630522",
+  "phone_display": "+55 38 99863-0522",
+  "email": "",
+  "instagram_url": "https://www.instagram.com/jb_engenharia18/",
+  "instagram_handle": "@jb_engenharia18",
+  "location": "Mirabela / MG",
+  "region": "Atuação no Norte de Minas e em outros estados",
+  "hours": "",
+  "show_instagram": true,
+  "messages": {
+    "general": "Olá! Gostaria de conversar com a JB Engenharia.",
+    "quote": "Olá! Gostaria de solicitar um orçamento com a JB Engenharia.",
+    "engineer": "Olá! Gostaria de falar com o engenheiro responsável.",
+    "service": "Olá! Gostaria de informações sobre o serviço: {servico}.",
+    "work": "Olá! Gostaria de saber mais sobre a obra: {obra}."
+  },
+  "labels": {
+    "header": "Falar com a JB",
+    "contact": "Solicitar orçamento",
+    "engineer": "Falar com o engenheiro",
+    "service": "Consultar este serviço",
+    "work": "Conversar sobre esta obra"
+  }
+}
