@@ -1,0 +1,24 @@
+{
+  "area": 60,
+  "featured": false,
+  "published": true,
+  "order": 50,
+  "end_date": "2026-11-01",
+  "gallery": [
+    {
+      "image": "/assets/uploads/frente-casa.jpeg"
+    },
+    {
+      "image": "/assets/uploads/whatsapp-image-2026-11-17-at-16.49.49.jpeg"
+    },
+    {
+      "image": "/assets/uploads/whatsapp-image-2026-11-17-at-16.49.50-2-.jpeg"
+    }
+  ],
+  "status": "Concluída",
+  "location": "Mirabela-MG",
+  "title": "Construção Residencial ",
+  "image": "/assets/uploads/whatsapp-image-2026-11-17-at-16.49.49.jpeg",
+  "description": "Execução completa de obra residencial, englobando todas as etapas desde a fundação e infraestrutura até o acabamento final. O escopo incluiu a alvenaria estrutural, instalações elétricas e hidráulicas embutidas, revestimento de pisos e paredes, pintura interna e externa, além da execução de esquadrias e telhado, garantindo alto padrão de qualidade, segurança e conformidade com o projeto arquitetônico.",
+  "category": "Residencial"
+}
