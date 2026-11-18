@@ -1,4 +1,11 @@
 {
   "title": "A confiança de quem constrói com a gente.",
-  "items": []
+  "items": [
+    {
+      "visible": true,
+      "name": "Jaciara Afonso",
+      "city": "Mirabela-MG",
+      "quote": "Cada detalhe entregue exatamente como imaginamos, muito obrigada por tanto cuidado."
+    }
+  ]
 }
